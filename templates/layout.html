@@ -22,15 +22,31 @@
                     <div class="cover">
                         <h3 class="masthead-brand">mrmabx</h3>
                         <nav>
+                            {% set current_route = path(app.request.attributes.get('_route')) %}
                             {% if app.user %}
                                 <ul class="nav masthead-nav">
+                                    {% set routes = {'homepage': 'Home'} %}
+                                    {% for k,i in routes %}
+                                        {% if  path(k)  == current_route %}    
+                                            <li class="active"><a href="{{ path(k) }}">{{i}}</a></li>
+                                         {% else %}
+                                            <li><a href="{{ path(k) }}">{{i}}</a></li>
+                                        {% endif %}   
+                                    {% endfor %}    
                                     <li><a href="/admin/logout">Logout</a></li>
                                 </ul>    
                             {% else %}
                                 <ul class="nav masthead-nav">
-                                    <li><a href="{{ path('login') }}">Login</a></li>
-                                    <li><a href="{{ path('register') }}">Register</a></li>
-                                    <li><a href="{{ path('forgot-password') }}">Forgot password</a></li>
+                                    {% set routes = {'login': 'Login', 'register': 'Register', 
+                                                     'forgot-password': 'Forgot-password'} %}
+                                             
+                                    {% for k,i in routes %}
+                                        {% if  path(k)  == current_route %}    
+                                            <li class="active"><a href="{{ path(k) }}">{{i}}</a></li>
+                                         {% else %}
+                                        <li><a href="{{ path(k) }}">{{i}}</a></li>
+                                        {% endif %}   
+                                    {% endfor %}
                                 </ul>
                             {% endif %}
                         </nav>
