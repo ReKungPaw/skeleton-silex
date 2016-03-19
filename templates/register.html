@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+   <h3>Register</h3>
+   <div class="col-xs-12 col-sm-6 col-sm-push-3 col-sm-pull-3">
+        <form action="{{ path('register') }}" method="POST" id="registration-form">
+            <div class="form-group">
+                <input type="text" name="username" class="form-control" placeholder="Username"  />
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" class="form-control"  placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password"  />
+            </div>
+            <div class="form-group">
+                <input type="password" name="repeat_password" class="form-control" placeholder="Repeat password"  />
+            </div>
+            <div class="form-group">
+                <input type="submit" name="send" class="btn btn-primary" value="Send" />
+            </div>
+        </form>
+    </div>
+{% endblock %}
