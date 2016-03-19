@@ -1,0 +1,3 @@
+app/config/dev.php
+var/logs/dev.log
+var/logs/prod.log
