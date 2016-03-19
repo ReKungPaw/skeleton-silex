@@ -10,4 +10,3 @@ You can easily setup this project:
 3. Add your database config into /app/config/dev.php or /app/config/prod.php
 4. Create table 'user' a dummy table structure is given in /database/user.sql
 5. composer install for installing the third party packages
-
