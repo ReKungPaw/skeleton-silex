@@ -10,10 +10,10 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'dbs.options' => array (
         'mysql' => array(
             'driver'    => 'pdo_mysql',
-            'host'      => 'localhost',
-            'dbname'    => 'skeleton',
-            'user'      => 'root',
-            'password'  => '123',
+            'host'      => null,
+            'dbname'    => null,
+            'user'      => null,
+            'password'  => null,
             'charset'   => 'utf8mb4',
         ),
     ),
