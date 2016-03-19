@@ -12,11 +12,11 @@ class RegistrationProvider implements ServiceProviderInterface
     {
         $app['registration'] = $app->protect(function ($username, $role, $password, $email, $hash) use ($app) {
             $app['db']->insert(Tables::$user, array(
-                'username'  => $username,
+                'username'  => strtolower($username),
                 'roles' => $role,
                 'password'  => $password,
                 'optin' => 0,
-                'email' => $email,
+                'email' => strtolower($email),
                 'registration_hash' => $hash,
                 'active' => 0
             ));
