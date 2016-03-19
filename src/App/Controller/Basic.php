@@ -35,7 +35,7 @@ $app->match('/forgot-password', function(Request $request) use ($app) {
     $email = $request->get('email', null);
     $validate = $app['validator']->validate($email, new Assert\Email());
 
-    // If something went wrong with email addres, redirect back to 
+    // If something went wrong with email address, redirect back to 
     // forgot password page
     if (count($validate)) {
         $app['session']->getFlashBag()->add('message', 
@@ -193,7 +193,7 @@ $app->match('/reset/{hash}', function(Request $request) use ($app) {
         return $app->redirect($app['url_generator']->generate('login'));
     }
 
-    // Check if linkg expired
+    // Check if link expired
     if (strtotime($user['forgot_password_date']) < strtotime('now -1 day')) {
         $app['session']->getFlashBag()->add('message', 
             array('type' => 'danger', 'text' => 'Url expired'));
